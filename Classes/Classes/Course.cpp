@@ -1,5 +1,6 @@
 #include "Course.h"
 #include <string>
+
 using namespace std;
 
 
@@ -22,4 +23,18 @@ bool Course::enrollStudent(Student newStudent, int position)
 	}
 	_students[position] = newStudent;
 		return true;
+}
+
+string Course::getClassInfo()
+{
+
+	string info = "Course information for " + _name + "\n";
+	info += _description;
+	info += "------------------------------";
+	info += "\n";
+	for (auto student : _students)
+	{
+		info += student.GetName() + "\n";
+	}
+	return info;
 }
